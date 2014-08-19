@@ -61,7 +61,6 @@ class ir_attachment(osv.osv):
             _logger.error("_read_file reading %s",full_path)
         return r
 
-
     def _data_get(self, cr, uid, ids, name, arg, context=None):
         if context is None:
             context = {}
@@ -91,6 +90,3 @@ class ir_attachment(osv.osv):
     _order = "sequence"
 
 ir_attachment()
-
-
-

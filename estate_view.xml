@@ -133,14 +133,17 @@
                         </div>
 	                </group>
 	            </page>          
-	        	<page string="Dimensiones" attrs="{'invisible': [('is_rural','=', True)]}"> 
+	        	<page string="Dimensiones"> 
                     <group col="4">
                         <label for="supTotal" style="color:red" />
                         <field name="supTotal" nolabel="1"/>
+                        
                         <label for="supEdificada" style="color:red" />
                         <field name="supEdificada" nolabel="1" />
+                        
                         <label for="largo" style="color:red" />
                         <field name="largo" nolabel="1" />
+                        
                         <label for="ancho" style="color:red" />
                         <field name="ancho" nolabel="1" />
                     </group>
@@ -549,10 +552,10 @@
                                 </t>
                                 <t t-if="record.has_image.raw_value === false">
                                     <t t-if="record.is_rural.raw_value === true">
-                                        <img t-att-src='_s + "/inmobiliaria/static/src/img/agritourism-64.png"' class="oe_kanban_image"/>
+                                        <img t-att-src='_s + "/dtm_inmobiliaria/static/src/img/agritourism-64.png"' class="oe_kanban_image"/>
                                     </t>
                                     <t t-if="record.is_rural.raw_value === false">
-                                        <img t-att-src='_s + "/inmobiliaria/static/src/img/home-5-64.png"' class="oe_kanban_image"/>
+                                        <img t-att-src='_s + "/dtm_inmobiliaria/static/src/img/home-5-64.png"' class="oe_kanban_image"/>
                                     </t>
                                 </t>
                             </a>

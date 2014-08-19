@@ -14,7 +14,7 @@
                     'estate_view.xml',
                     'report/estate_report.xml',
                     'crm_lead_view.xml',
-                    'pedidos.xml',
+#                    'pedidos.xml',
                     'security/inmobiliaria_security.xml',
 #                    'security/ir.model.acess.csv'
                     ],

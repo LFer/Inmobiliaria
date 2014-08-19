@@ -69,7 +69,14 @@ class crm_lead(base_stage, format_address, osv.osv):
                 'nodestroy': True,
                 'context':ctx,
             }
+    
+    def _get_condicion(self, cr, uid, ids, pago_desde, pago_hasta, context=None):
+        if(pago_desde <= pago_hasta):
+            raise osv.except_osv(_('ERROR EXPLOTA EL MUNDO'),_('PORFAVOR NO SEA NABO'))
+
     _columns = {
+        
+        'condicion':fields.function(_get_condicion, type='float', method='True', string='Prueba'),
 
         'number': fields.char('Código', size=64, required=True),
         'city': fields.char('Ciudad', size=128),
@@ -211,13 +218,14 @@ class crm_lead(base_stage, format_address, osv.osv):
         #Para la vista form editada
         'crm_currency':fields.many2one('res.currency', 'Moneda'),
         'is_rural':fields.boolean('Es propiedad rural'),
+
+        #Funcion
         
         
     }
     _defaults= {
         'crm_currency': 3,
         }
-
 
     def onchange_categoria(self, cr, uid, ids, category_id, context=None):
         if category_id:

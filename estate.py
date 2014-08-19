@@ -590,8 +590,6 @@ class temporada(osv.osv):
     def get_number_of_days(self, cr, uid, ids, fecha_inicio, fecha_fin, rent_day, context=None):
         res=0
         if (fecha_fin and fecha_inicio) and (fecha_inicio <= fecha_fin):
-            #import pdb
-            #pdb.set_trace()
             DATETIME_FORMAT = "%Y-%m-%d"
             to_dt = datetime.datetime.strptime(fecha_fin, DATETIME_FORMAT)
             from_dt = datetime.datetime.strptime(fecha_inicio, DATETIME_FORMAT)

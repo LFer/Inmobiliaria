@@ -24,6 +24,11 @@ class crm_lead(base_stage, format_address, osv.osv):
     _name = "crm.lead"
     _inherit = ['crm.lead']
 
+class crm_lead(base_stage, format_address, osv.osv):
+
+    _name = "crm.lead"
+    _inherit = ['crm.lead']
+
     def button_crm_match(self, cr, uid, ids, context=None, *args):
         view_ref = self.pool.get('ir.model.data').get_object_reference(cr, uid, 'dtm_inmobiliaria', 'view_estate_tree')
         view_id = view_ref and view_ref[1] or False
@@ -73,29 +78,11 @@ class crm_lead(base_stage, format_address, osv.osv):
             'nodestroy': True,
             'context':ctx,
         }
-
-<<<<<<< HEAD
-            return {
-                'domain': "[('id','in',["+','.join(map(str, oportunidades))+"])]",
-                'type': 'ir.actions.act_window',
-                'name': 'Propiedades macheables',
-                'res_model': 'estate',
-                #'res_id': oportunidades,
-                'view_type': 'tree',
-                'view_mode': 'tree',
-                'button': 'yes',
-                'view_id': (view_id,'View'),
-                'target': 'new',
-                'nodestroy': True,
-                'context':ctx,
-            }
     
     def _get_condicion(self, cr, uid, ids, pago_desde, pago_hasta, context=None):
         if(pago_desde <= pago_hasta):
-            raise osv.except_osv(_('ERROR EXPLOTA EL MUNDO'),_('PORFAVOR NO SEA NABO'))
+            raise osv.except_osv(_('ERROR'),_('El valor desde debe ser mayor que el valor hasta'))
 
-=======
->>>>>>> 0c267d318f135e455721896c35363dcae8832b91
     _columns = {
         
         'condicion':fields.function(_get_condicion, type='float', method='True', string='Prueba'),
@@ -228,13 +215,10 @@ class crm_lead(base_stage, format_address, osv.osv):
         #Para la vista form editada
         'crm_currency':fields.many2one('res.currency', 'Moneda'),
         'is_rural':fields.boolean('Es propiedad rural'),
-<<<<<<< HEAD
 
         #Funcion
         
         
-=======
->>>>>>> 0c267d318f135e455721896c35363dcae8832b91
     }
 
     _defaults= {

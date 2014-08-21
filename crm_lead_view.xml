@@ -9,16 +9,30 @@
         <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
         <field name="arch" type="xml">
             <field name="planned_revenue" position="replace">
-        		<field name="pago_desde" />
+                <field name="pago_desde" />
         	</field>
         	<field name="probability" position="replace">
         		<field name="pago_hasta" />
         	</field>
-
-        </field>				
+        </field>
     </record>
 
-
+    <record id="view_crm_leads_macheo_tree" model="ir.ui.view">
+        <field name="name">view.crm.leads.macheo.tree</field>
+        <field name="model">crm.lead</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml" >
+            <tree string="Propiedades">
+                <field name="create_date"/>
+                <field name="name" string="Opportunity"/>
+                <field name="partner_id" string="Customer"/>
+                <field name="score"/>
+                <field name="pago_desde" />
+                <field name="pago_hasta" />
+            </tree>
+        </field>
+    </record>
+    
 	<record id="inherited_view_crm_leads_form" model="ir.ui.view">
         <field name="name">crm.leads.form.inherit</field>
         <field name="model">crm.lead</field>
@@ -43,6 +57,7 @@
             
         	<field name="probability" position="replace">
                 <field name="pago_hasta" class="oe_inline" widget='monetary' /> 
+<<<<<<< HEAD
         	</field>
             
             <!--field name="number" position="replace">
@@ -52,6 +67,9 @@
         	
             
             
+=======
+        	</field>            
+>>>>>>> 0c267d318f135e455721896c35363dcae8832b91
             
 			    <xpath expr="//page[@string='Lead']" position="after">
 	        	<page string="Dimensiones"> 
@@ -162,8 +180,6 @@
                     </group>
                 </page>
 
-
-
 	     		<!--page string="Urbanas/Comodidades" >
                     <group col="4">
                         <field name="cantidadDormitorios" />
@@ -180,14 +196,8 @@
 						<field name="produccion" />
                     </group>
 	            </page-->
-
-		        
-
-
-			
 				<!--page string="Rurales/Comodidades" >					
 	                <group col="4" >
-
                 		<field name="luz"  />
                 		<field name="agua" />
 	                    <field name="embarcadero"  />
@@ -199,27 +209,17 @@
 	                    <field name="tubo"  />
 	                    <field name="cepo"  />
 	                    <field name="otras" />
-
 	                </group>  
 				</page-->
-				
-	     		
 			</xpath>
-
-
-        </field>
-
-       
-        
+        </field>    
     </record>
     
-
 	<record id="inherited_view_crm_leads_form2" model="ir.ui.view">
         <field name="name">crm.leads.form.inherit</field>
         <field name="model">crm.lead</field>
         <field name="type">form</field>
         <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
-
         <field name="arch" type="xml">
         	<field name="categ_ids" position="replace">
         		<field name="category_id" string="Categorías" widget="many2many_tags" placeholder="Categorías..." on_change="onchange_categoria(category_id)"/>
@@ -227,11 +227,8 @@
         	<field name="phone" position="after">
         		<field name="number" string="Código" />
         	</field>
-        </field>				
-        
+        </field>
     </record>
-
-
 
     <record id="view_crm_case_opportunities_filter2" model="ir.ui.view">
          <field name="name">crm.lead.select</field>
@@ -244,8 +241,6 @@
          </field>				
      </record>
 
- 
- 
     <!-- Opportunities Tree View -->
     <record model="ir.ui.view" id="crm_case_tree_view_oppor_ext">
         <field name="name">Leads</field>
@@ -258,11 +253,8 @@
         	<field name="date_action" position="replace">
         		<field name="category_id" string="Categoría" filter_domain="[('category_id','ilike', self)]"/>
         	</field>
-
         	<field name="title_action" position="replace" />
         	<field name="stage_id" position="replace" />
-
-
         </field>
     </record>        
 </data>
